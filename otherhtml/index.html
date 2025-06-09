@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Directory</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background-color: #3e3f3f; /* Light blue-gray background */
+            margin: 0; 
+            padding: 0; 
+        }
+        .container { 
+            max-width: 900px; 
+            margin: 40px auto; 
+            padding: 20px; 
+            background: rgb(44, 44, 44); 
+            border-radius: 12px; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+        }
+        h2 { 
+            text-align: center; 
+            color: #0056b3; /* Dark blue for headings */
+        }
+        .search-bar { 
+            width: 100%; 
+            padding: 12px; 
+            margin-bottom: 20px; 
+            border: 1px solid #0056b3; /* Dark blue border */
+            border-radius: 8px; 
+            font-size: 16px; 
+            color: #0056b3; /* Dark blue text */
+        }
+        .search-bar::placeholder {
+            color: #80b3ff; /* Light blue placeholder */
+        }
+        .tabs { 
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 20px; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+        }
+        .tab { 
+            padding: 12px 18px; 
+            cursor: pointer; 
+            background: #cce0ff; /* Light blue background */
+            border-radius: 20px; 
+            transition: 0.3s; 
+            font-size: 14px; 
+            font-weight: bold; 
+            color: #0056b3; /* Dark blue text */
+        }
+        .tab:hover, .tab.active { 
+            background: #0056b3; /* Dark blue background */
+            color: white; 
+        }
+        .doctor-list { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 15px; 
+            justify-content: center; 
+            margin-top: 20px; 
+        }
+        
+        /* Flip Card Styles */
+        .flip-card {
+            background-color: transparent;
+            width: 190px;
+            height: 254px;
+            perspective: 1000px;
+            font-family: sans-serif;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border: 1px solid #0056b3; /* Dark blue border */
+            border-radius: 1rem;
+        }
+
+        .flip-card-front {
+            background: linear-gradient(120deg, #e6f0ff 60%, #cce0ff 88%,
+               #b3d1ff 40%, #80b3ff 48%); /* Light blue gradient */
+            color: #0056b3; /* Dark blue text */
+        }
+
+        .flip-card-back {
+            background: linear-gradient(120deg, #80b3ff 30%, #0056b3 88%,
+               #e6f0ff 40%, #cce0ff 78%); /* Blue gradient */
+            color: white; /* White text */
+            transform: rotateY(180deg);
+        }
+
+        .title {
+            font-size: 1.5em;
+            font-weight: 900;
+            text-align: center;
+            margin: 0;
+        }
+
+        .sticker {
+            font-weight: bold;
+            color: #0056b3; /* Dark blue text */
+        }
+
+        @media (max-width: 600px) {
+            .flip-card { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Find a Doctor</h2>
+        <input type="text" id="searchName" class="search-bar" placeholder="Search by name..." onkeyup="filterDoctors()" aria-label="Search by name">
+        
+        <div class="tabs" id="specialtyTabs" role="tablist"></div>
+        
+        <div class="doctor-list" id="doctorList" role="list"></div>
+    </div>
+
+    <script>
+      const doctors = [
+    { name: "Dr. Laila Bensalem", specialty: "Cardiology", address: "12 Rue Pasteur", phone: "070-123-4567", workTime: "8AM - 2PM" },
+    { name: "Dr. Karim Fekir", specialty: "Cardiology", address: "45 Boulevard Ziane", phone: "079-456-7890", workTime: "10AM - 6PM" },
+    { name: "Dr. Nadia Cherif", specialty: "Neurology", address: "89 Avenue des Martyrs", phone: "077-321-9876", workTime: "9AM - 5PM" },
+    { name: "Dr. Samir Ziani", specialty: "Neurology", address: "23 Rue Bouzid", phone: "076-654-1234", workTime: "7AM - 3PM" },
+    { name: "Dr. Amina Belkacem", specialty: "Dermatology", address: "101 Rue de la Liberté", phone: "071-777-8888", workTime: "8AM - 4PM" },
+    { name: "Dr. Mourad Dali", specialty: "Dermatology", address: "56 Rue Ben Mhidi", phone: "073-888-9999", workTime: "9AM - 1PM" },
+    { name: "Dr. Salim Haddad", specialty: "Pediatrics", address: "30 Rue Frantz Fanon", phone: "075-112-3344", workTime: "9AM - 5PM" },
+    { name: "Dr. Yasmine Boukercha", specialty: "Ophthalmology", address: "18 Rue Didouche Mourad", phone: "074-556-7788", workTime: "10AM - 4PM" }
+];
+
+        
+        const specialties = ["All", ...new Set(doctors.map(d => d.specialty))];
+        const tabsContainer = document.getElementById("specialtyTabs");
+        const doctorList = document.getElementById("doctorList");
+
+        function createTabs() {
+            specialties.forEach(specialty => {
+                let tab = document.createElement("button");
+                tab.classList.add("tab");
+                tab.innerText = specialty;
+                tab.setAttribute("role", "tab");
+                tab.setAttribute("aria-selected", specialty === "All");
+                tab.onclick = () => filterDoctors(specialty);
+                if (specialty === "All") tab.classList.add("active");
+                tabsContainer.appendChild(tab);
+            });
+        }
+
+        function filterDoctors(specialty = "All") {
+            let nameQuery = document.getElementById("searchName").value.toLowerCase();
+            doctorList.innerHTML = "";
+            
+            let filtered = doctors.filter(d => 
+                (specialty === "All" || d.specialty === specialty) && 
+                (d.name.toLowerCase().includes(nameQuery))
+            );
+            
+            document.querySelectorAll(".tab").forEach(tab => {
+                tab.classList.remove("active");
+                tab.setAttribute("aria-selected", "false");
+            });
+            document.querySelectorAll(".tab").forEach(tab => {
+                if (tab.innerText === specialty) {
+                    tab.classList.add("active");
+                    tab.setAttribute("aria-selected", "true");
+                }
+            });
+            
+            filtered.forEach(doctor => {
+                let card = document.createElement("div");
+                card.classList.add("flip-card");
+
+                let inner = document.createElement("div");
+                inner.classList.add("flip-card-inner");
+
+                let front = document.createElement("div");
+                front.classList.add("flip-card-front");
+                front.innerHTML = `<p class="title">${doctor.name}</p>
+                                     <p>${doctor.specialty}</p>`;
+
+                let back = document.createElement("div");
+                back.classList.add("flip-card-back");
+                back.innerHTML = `<p class="title">Contact</p>
+                                  <p>📞 ${doctor.phone}</p>
+                                  <p>📍 ${doctor.address}</p>
+                                  <p>⏰ ${doctor.workTime}</p>`;
+
+                inner.appendChild(front);
+                inner.appendChild(back);
+                card.appendChild(inner);
+                doctorList.appendChild(card);
+            });
+        }
+
+        createTabs();
+        filterDoctors();
+    </script>
+</body>
+</html>

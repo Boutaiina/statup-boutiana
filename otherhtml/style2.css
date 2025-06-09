@@ -1,0 +1,196 @@
+/* Existing styles */
+
+/* General styles for body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2a292e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Chat container */
+.chat-container {
+    width: 800px; /* 2x bigger */
+    height: 600px; /* Increased height */
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Chat header */
+.chat-header {
+    background: #0078ff;
+    color: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.chat-header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid white;
+}
+
+.chat-header h2 {
+    margin: 0;
+    font-size: 18px;
+    flex-grow: 1;
+}
+
+.status {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Chat box */
+.chat-box {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    height: 500px; /* More chat space */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: #e9eff1;
+}
+
+/* Message styles */
+.message {
+    max-width: 70%;
+    padding: 15px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    line-height: 1.6;
+    display: inline-block;
+    word-wrap: break-word;
+}
+
+.doctor {
+    align-self: flex-start;
+    background: #ffffff;
+    color: #333;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.patient {
+    align-self: flex-end;
+    background: #0078ff;
+    color: white;
+    text-align: right;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Typing indicator styles */
+.typing {
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.dots::after {
+    content: "...";
+    animation: dots 1.5s infinite;
+}
+
+@keyframes dots {
+    0% { content: "."; }
+    33% { content: ".."; }
+    66% { content: "..."; }
+}
+
+/* Chat input area */
+.chat-input {
+    display: flex;
+    border-top: 1px solid #ddd;
+    padding: 15px;
+    background: white;
+}
+
+.chat-input input {
+    flex-grow: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    font-size: 16px;
+    background: #f0f2f5;
+}
+
+.chat-input button {
+    background: #0078ff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin-left: 15px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.chat-input button:hover {
+    background: #005bbf;
+}
+
+/* New Send Button Design */
+button {
+    font-family: inherit;
+    font-size: 20px;
+    background: royalblue;
+    color: white;
+    padding: 0.7em 1em;
+    padding-left: 0.9em;
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+button span {
+    display: block;
+    margin-left: 0.3em;
+    transition: all 0.3s ease-in-out;
+}
+
+button svg {
+    display: block;
+    transform-origin: center center;
+    transition: transform 0.3s ease-in-out;
+}
+
+button:hover .svg-wrapper {
+    animation: fly-1 0.6s ease-in-out infinite alternate;
+}
+
+button:hover svg {
+    transform: translateX(1.2em) rotate(45deg) scale(1.1);
+}
+
+button:hover span {
+    transform: translateX(5em);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+@keyframes fly-1 {
+    from {
+        transform: translateY(0.1em);
+    }
+
+    to {
+        transform: translateY(-0.1em);
+    }
+}

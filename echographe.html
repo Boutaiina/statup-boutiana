@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Echography Gallery</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2980b9;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 300;
+        }
+        
+        .subtitle {
+            font-weight: 300;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .image-container {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .image-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: 350px;
+            object-fit: contain;
+            display: block;
+            border-bottom: 1px solid #eee;
+            background-color: #000;
+        }
+        
+        .image-info {
+            padding: 20px;
+        }
+        
+        .caption {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .description {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        
+        .view-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        
+        .view-btn:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .image-container img {
+                height: 250px;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .image-container {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        
+        .image-container:nth-child(1) { animation-delay: 0.1s; }
+        .image-container:nth-child(2) { animation-delay: 0.2s; }
+        .image-container:nth-child(3) { animation-delay: 0.3s; }
+        .image-container:nth-child(4) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Medical Echography Gallery</h1>
+        </header>
+        
+        <div class="gallery">
+            <!-- Image 1 -->
+            <div class="image-container">
+                <img src="assets/images/version2/echo01.png" alt="Abdominal Ultrasound">
+                <div class="image-info">
+                    <h3 class="caption">Abdominal Ultrasound</h3>
+                    <p class="description">Transverse view of the upper abdomen showing liver parenchyma with normal echotexture. The image demonstrates proper visualization of the portal vein and hepatic vasculature without evidence of focal lesions or biliary duct dilation.</p>
+                    <a href="assets/images/version2/echo01.png" class="view-btn">View Full Image</a>
+                </div>
+            </div>
+            
+            <!-- Image 2 -->
+            <div class="image-container">
+                <img src="assets/images/version2/echo02.png" alt="Fetal Ultrasound">
+                <div class="image-info">
+                    <h3 class="caption">Fetal Ultrasound</h3>
+                    <p class="description">Mid-trimester fetal scan showing profile view with normal facial features. The nasal bone is clearly visualized (arrow) and the nuchal fold measurement is within normal limits, important markers for chromosomal anomaly screening.</p>
+                    <a href="assets/images/version2/echo02.png" class="view-btn">View Full Image</a>
+                </div>
+            </div>
+            
+            <!-- Image 3 -->
+            <div class="image-container">
+                <img src="assets/images/version2/echo03.png" alt="Fetal Biometry">
+                <div class="image-info">
+                    <h3 class="caption">Fetal Biometry Measurement</h3>
+                    <p class="description">Second trimester fetal ultrasound showing crown-rump length (CRL) measurement of approximately 10cm, indicating normal growth progression. The image demonstrates proper fetal positioning for biometric assessment with clear visualization of anatomical structures.</p>
+                    <a href="assets/images/version2/echo03.png" class="view-btn">View Full Image</a>
+                </div>
+            </div>
+            
+            <!-- Image 4 -->
+            <div class="image-container">
+                <img src="assets/images/version2/echo04.png" alt="Thyroid Ultrasound">
+                <div class="image-info">
+                    <h3 class="caption">Thyroid Ultrasound</h3>
+                    <p class="description">Transverse view of the thyroid gland showing homogeneous parenchyma with normal echogenicity. Both lobes are symmetrical with well-defined margins, and the isthmus appears normal in thickness without nodularity.</p>
+                    <a href="assets/images/version2/echo04.png" class="view-btn">View Full Image</a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

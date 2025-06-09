@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordonnance Result</title>
+</head>
+<style>
+    /* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #383838;
+    color: #333;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: #0078ff;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 18px;
+    color: #777;
+}
+
+.ordonnance-result {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.result-item {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.result-item h3 {
+    margin-top: 0;
+    color: #0078ff;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.result-item h3 span {
+    font-size: 26px;
+    margin-left: 10px;
+}
+
+.result-item ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.result-item li {
+    padding: 10px 0;
+    font-size: 16px;
+}
+
+.result-item li strong {
+    color: #0078ff;
+}
+
+.result-item table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.result-item table th,
+.result-item table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.result-item table th {
+    background-color: #f1f1f1;
+    font-weight: bold;
+    color: #0078ff;
+}
+
+.result-item table td {
+    background-color: #fafafa;
+}
+
+
+button {
+    padding: 1.1em 2em;
+    background: none;
+    border: 2px solid #fff;
+    font-size: 15px;
+    color: #131313;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    border-radius: 12px;
+    background-color: #ecd448;
+    font-weight: bolder;
+    box-shadow: 0 2px 0 2px #000;
+}
+
+button:before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 120%;
+    background-color: #ff6700;
+    top: 50%;
+    transform: skewX(30deg) translate(-150%, -50%);
+    transition: all 0.5s;
+}
+
+button:hover {
+    background-color: #4cc9f0;
+    color: #fff;
+    box-shadow: 0 2px 0 2px #0d3b66;
+}
+
+button:hover::before {
+    transform: skewX(30deg) translate(150%, -50%);
+    transition-delay: 0.1s;
+}
+
+button:active {
+    transform: scale(0.9);
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+
+    button {
+        width: 100%;
+    }
+}
+
+</style>
+<body>
+    <div class="container">
+        <header>
+            <h1>Ordonnance Result</h1>
+            <p>Your prescription details are listed below.</p>
+        </header>
+        
+        <div class="ordonnance-result">
+            <div class="result-item" id="patient-info">
+                <h3>Patient Information</h3>
+                <p><strong>Name:</strong> Boutaina KH</p>
+                <p><strong>Age:</strong> 24 years</p>
+                <p><strong>Gender:</strong> Female</p>
+                <p><strong>Address:</strong> Ali Mendjli, Algeria</p>
+            </div>
+
+            <div class="result-item" id="medications">
+                <h3>Prescribed Medications</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Medication</th>
+                            <th>Dosage</th>
+                            <th>Frequency</th>
+                            <th>Instructions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Metformin</td>
+                            <td>500mg</td>
+                            <td>1 tablet after breakfast</td>
+                            <td>Helps control blood sugar levels.</td>
+                        </tr>
+                        <tr>
+                            <td>Aspirin</td>
+                            <td>75mg</td>
+                            <td>1 tablet before dinner</td>
+                            <td>Prevent blood clotting and reduce inflammation.</td>
+                        </tr>
+                        <tr>
+                            <td>Insulin (short acting)</td>
+                            <td>10 units</td>
+                            <td>Before each meal</td>
+                            <td>Regulates blood glucose levels during meals.</td>
+                        </tr>
+                        <tr>
+                            <td>Lisinopril</td>
+                            <td>10mg</td>
+                            <td>1 tablet in the morning</td>
+                            <td>For blood pressure control.</td>
+                        </tr>
+                        <tr>
+                            <td>Omeprazole</td>
+                            <td>20mg</td>
+                            <td>1 tablet before breakfast</td>
+                            <td>Treats acid reflux and stomach ulcers.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="result-item" id="instructions">
+                <h3>Additional Instructions</h3>
+                <ul>
+                    <li>Monitor blood sugar levels regularly.</li>
+                    <li>Eat a balanced diet with low carbs.</li>
+                    <li>Consult the doctor if symptoms persist or worsen.</li>
+                </ul>
+            </div>
+
+            <div class="result-item" id="doctor-remarks">
+                <h3>Doctor's Remarks</h3>
+                <p><strong>Dr. Ahmed Benali</strong> (Endocrinologist) suggests maintaining a healthy lifestyle and following the prescribed medications strictly. Regular check-ups are necessary.</p>
+            </div>
+
+            <div class="result-item" id="next-appointment">
+                <h3>Next Appointment</h3>
+                <p><strong>Date:</strong> February 20, 2025</p>
+                <p><strong>Reason:</strong> Routine check-up and medication follow-up</p>
+            </div>
+
+         
+        </div>
+    </div>
+
+    <script>
+        // Stickers array (can be customized)
+        const stickers = [
+            "👩‍⚕️", "💊", "📋", "📝", "📅", "😊", "💉", "🩺", "🥼", "🏥", "💪", "💖"
+        ];
+
+        // Function to randomly select and insert stickers
+        function addSticker(sectionId) {
+            const section = document.getElementById(sectionId);
+            const sticker = stickers[Math.floor(Math.random() * stickers.length)];
+            const stickerElement = document.createElement('span');
+            stickerElement.innerText = sticker;
+            section.querySelector('h3').appendChild(stickerElement);
+        }
+
+        // Adding stickers automatically to the sections
+        addSticker('patient-info');
+        addSticker('medications');
+        addSticker('instructions');
+        addSticker('doctor-remarks');
+        addSticker('next-appointment');
+    </script>
+</body>
+</html>

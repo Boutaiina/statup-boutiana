@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Laboratory Report</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .header h1 {
+            color: #2c3e50;
+            margin: 0;
+        }
+        .patient-info {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .patient-info h2 {
+            color: #3498db;
+            margin-top: 0;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        .info-row {
+            display: flex;
+            margin-bottom: 8px;
+        }
+        .info-label {
+            font-weight: bold;
+            width: 150px;
+            color: #2c3e50;
+        }
+        .info-value {
+            flex: 1;
+        }
+        .analysis-section {
+            margin-bottom: 30px;
+        }
+        .analysis-section h2 {
+            color: #3498db;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        .analysis-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .analysis-table th {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
+        .analysis-table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .analysis-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .normal {
+            color: #27ae60;
+        }
+        .abnormal {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .critical {
+            color: #e74c3c;
+            font-weight: bold;
+            background-color: #ffebee;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        .lab-signature {
+            margin-top: 40px;
+            text-align: right;
+            border-top: 1px dashed #7f8c8d;
+            padding-top: 10px;
+        }
+        .diabetes-notes {
+            background-color: #fff3e0;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #ffa000;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Medical Laboratory Report</h1>
+            <p>Hope Medical Laboratory</p>
+        </div>
+        
+        <div class="patient-info">
+            <h2>Patient Information</h2>
+            <div class="info-row">
+                <span class="info-label">Patient Name:</span>
+                <span class="info-value">Boutaina kh</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Medical Record #:</span>
+                <span class="info-value">DM-2023-7890</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Age:</span>
+                <span class="info-value">24 years</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Gender:</span>
+                <span class="info-value">Female</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Date of Test:</span>
+                <span class="info-value">November 20, 2023</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Referring Physician:</span>
+                <span class="info-value">Dr. Sarah Johnson</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Diagnosis:</span>
+                <span class="info-value">Type 2 Diabetes Mellitus</span>
+            </div>
+        </div>
+        
+        <div class="diabetes-notes">
+            <h3>Diabetes Monitoring Panel</h3>
+            <p>This patient has been diagnosed with Type 2 Diabetes. Special attention should be paid to glucose levels and long-term diabetic markers.</p>
+        </div>
+        
+        <div class="analysis-section">
+            <h2>Blood Tests</h2>
+            <table class="analysis-table">
+                <thead>
+                    <tr>
+                        <th>Test Name</th>
+                        <th>Result</th>
+                        <th>Unit</th>
+                        <th>Normal Range</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Fasting Blood Glucose</td>
+                        <td>186</td>
+                        <td>mg/dL</td>
+                        <td>70-110</td>
+                        <td class="critical">High (Diabetic)</td>
+                    </tr>
+                    <tr>
+                        <td>Hemoglobin A1c</td>
+                        <td>8.2</td>
+                        <td>%</td>
+                        <td>4.0-6.0</td>
+                        <td class="critical">Poor Control</td>
+                    </tr>
+                    <tr>
+                        <td>Total Cholesterol</td>
+                        <td>210</td>
+                        <td>mg/dL</td>
+                        <td>&lt;200</td>
+                        <td class="abnormal">High</td>
+                    </tr>
+                    <tr>
+                        <td>Triglycerides</td>
+                        <td>240</td>
+                        <td>mg/dL</td>
+                        <td>&lt;150</td>
+                        <td class="critical">Very High</td>
+                    </tr>
+                    <tr>
+                        <td>HDL Cholesterol</td>
+                        <td>38</td>
+                        <td>mg/dL</td>
+                        <td>&gt;40</td>
+                        <td class="abnormal">Low</td>
+                    </tr>
+                    <tr>
+                        <td>LDL Cholesterol</td>
+                        <td>142</td>
+                        <td>mg/dL</td>
+                        <td>&lt;100</td>
+                        <td class="abnormal">High</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="analysis-section">
+            <h2>Urinalysis</h2>
+            <table class="analysis-table">
+                <thead>
+                    <tr>
+                        <th>Test Name</th>
+                        <th>Result</th>
+                        <th>Interpretation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Glucose</td>
+                        <td>Positive (++)</td>
+                        <td class="abnormal">Abnormal (Glycosuria)</td>
+                    </tr>
+                    <tr>
+                        <td>Ketones</td>
+                        <td>Negative</td>
+                        <td class="normal">Normal</td>
+                    </tr>
+                    <tr>
+                        <td>Microalbumin</td>
+                        <td>45</td>
+                        <td class="abnormal">Elevated (Early nephropathy)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="analysis-section">
+            <h2>Physician's Comments</h2>
+            <div style="background-color: #fffde7; padding: 15px; border-radius: 5px; border-left: 4px solid #ffd600;">
+                <p>Patient shows poor glycemic control with elevated HbA1c and fasting glucose. Lipid profile is also concerning.</p>
+                <p><strong>Recommendations:</strong></p>
+                <ul>
+                    <li>Adjustment of current diabetes medication regimen</li>
+                    <li>Strict dietary modifications focusing on carbohydrate control</li>
+                    <li>Regular blood glucose monitoring (4x daily)</li>
+                    <li>Initiation of statin therapy for dyslipidemia</li>
+                    <li>Follow-up in 4 weeks with repeat HbA1c</li>
+                    <li>Referral to diabetes educator and nutritionist</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="lab-signature">
+            <p>Physician's Signature: ________________________</p>
+            <p>Dr. Sarah Johnson</p>
+            <p>Endocrinology Specialist</p>
+            <p>License #: ENDO-456789</p>
+        </div>
+        
+        
+    </div>
+</body>
+</html>

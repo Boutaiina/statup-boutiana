@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Medical Record - Boutiana K.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(to right, #e8f0f5, #fdfdfd);
+      margin: 0;
+      padding: 0;
+      color: #222;
+    }
+    .container {
+      max-width: 850px;
+      margin: 40px auto;
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      direction: ltr;
+    }
+    h1 {
+      text-align: center;
+      font-size: 32px;
+      color: #2c3e50;
+      margin-bottom: 30px;
+      position: relative;
+    }
+    h1::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 4px;
+      background-color: #3498db;
+      margin: 10px auto 0;
+      border-radius: 5px;
+    }
+    h2 {
+      font-size: 22px;
+      color: #1e4d6b;
+      border-left: 5px solid #3498db;
+      padding-left: 10px;
+      margin-top: 35px;
+    }
+    .section {
+      margin-bottom: 25px;
+    }
+    .section p {
+      margin: 6px 0;
+    }
+    .label {
+      font-weight: bold;
+      color: #2c3e50;
+    }
+    ul {
+      padding-left: 20px;
+      list-style: none;
+    }
+    ul li {
+      margin: 10px 0;
+      padding-left: 28px;
+      position: relative;
+      line-height: 1.6;
+    }
+    ul li::before {
+      content: "✔️";
+      position: absolute;
+      left: 0;
+      font-size: 18px;
+      color: #3498db;
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+      h1 {
+        font-size: 26px;
+      }
+      h2 {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Medical Record – Boutiana K.</h1>
+
+    <div class="section">
+      <p><span class="label">Name:</span> Boutiana K.</p>
+      <p><span class="label">Age:</span> 24 years</p>
+      <p><span class="label">Gender:</span> Female</p>
+    </div>
+
+    <div class="section">
+      <h2>Personal Medical History</h2>
+      <ul>
+        <li>Has had asthma since childhood, uses salbutamol inhaler when needed.</li>
+        <li>Diagnosed with hypothyroidism since 2018, treated with levothyroxine.</li>
+        <li>Chronic migraines, worsens under stress.</li>
+        <li>Allergic to seafood (rash and digestive issues).</li>
+        <li>Frequent urinary tract infections in 2022.</li>
+        <li>Hospitalized for acute gastroenteritis in 2019.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Family Medical History</h2>
+      <ul>
+        <li>Mother has systemic lupus erythematosus.</li>
+        <li>Father suffers from hypertension and type 2 diabetes.</li>
+        <li>Sister has severe seasonal allergies.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Previous Surgeries</h2>
+      <ul>
+        <li>Tonsillectomy at age 10.</li>
+        <li>Ovarian cyst surgery in 2021 (laparoscopy).</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Current Medications</h2>
+      <ul>
+        <li>Levothyroxine 50 mcg daily.</li>
+        <li>Ventolin as needed for asthma attacks.</li>
+        <li>Paracetamol 1g for migraines.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Updated Vaccinations</h2>
+      <ul>
+        <li>Seasonal influenza vaccine.</li>
+        <li>COVID-19 vaccine (3 doses).</li>
+        <li>HPV (Human Papillomavirus) vaccine.</li>
+        <li>Tetanus and diphtheria booster.</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
